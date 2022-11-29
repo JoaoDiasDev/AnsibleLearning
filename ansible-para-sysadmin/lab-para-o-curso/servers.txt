@@ -1,0 +1,11 @@
+VM Rocky Linux - Name - Ansible - IP - 192.168.1.15
+User: root
+password: 123
+
+VM Rocky Linux - Name - Ansible-clone - IP - 192.168.1.14
+User: root
+password: 123
+
+VM Windows Server 2019 - Name - Ansible - IP - 192.168.1.17
+User: Administrator
+password: Matheus321*
