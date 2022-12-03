@@ -1,0 +1,18 @@
+---
+
+-name: instalacao de pacotes
+ yum: name={{item}} state=latest
+ with_items:
+   - "{{ common_packages }}"
+
+-name: instalacao de pacotes
+ yum: name={{item}} state=latest
+ with_items:
+   - tcpdump
+   - vim
+   - gcc
+
+-name: instalacao de pacotes
+ yum: name={{common_packages}} state=latest
+
+...

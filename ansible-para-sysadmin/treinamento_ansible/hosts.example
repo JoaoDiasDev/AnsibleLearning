@@ -1,0 +1,21 @@
+[servidores_web]
+www ansible_ssh_host=192.168.1.21
+
+[servidores_db]
+mysql ansible_ssh_host=192.168.1.22
+
+[servidores:children]
+servidores_web
+servidores_db
+
+[servidores:vars]
+ansible_ssh_port=22
+ansible_ssh_user=joaodias
+ansible_ssh_pass=123
+ansible_become=yes
+ansible_become_method=sudo
+ansible_become_pass=123
+ansible_connection=ssh
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
