@@ -1,18 +1,31 @@
 ---
 
--name: instalacao de pacotes
- yum: name={{item}} state=latest
- with_items:
-   - "{{ common_packages }}"
+# Gerenciamento de pacotes e atualizacao do Sistema Operacional
 
--name: instalacao de pacotes
- yum: name={{item}} state=latest
- with_items:
-   - tcpdump
-   - vim
-   - gcc
+- name: Atualizacao do Sistema Operacional
+  yum: name=* state=latest update_cache=yes
 
--name: instalacao de pacotes
- yum: name={{common_packages}} state=latest
+- name: Instalacao de pacotes
+  yum: 
+    name: "{{packages}}"
+    state: latest
+  vars:
+    packages:
+      - net-tools
+      - vim
+      - nmap
+
+# Configuracao de Timezone
+
+- name: Configurando Timezone
+  file: src=/usr/share/zoneinfo/America/Sao_Paulo  dest=/etc/localtime state=link force=yes
+
+# Copia de arquivos
+
+- name: Copiando arquivos de backup
+  copy: src=backup.tar.xz dest=/tmp/backup.tar.xz
+
+- name: Copiando um template
+  template: src=motd dest=/etc/motd force=yes owner=root group=root
 
 ...

@@ -1,0 +1,16 @@
+- name: Playbook Default
+  hosts: all
+  tasks:
+    - name: SISOP | Verificando se o arquivo existe
+      stat: path=/tmp/testeansible002
+      register: file
+    
+    - name: SISOP | Copiando arquivo
+      fetch: 
+        src: /tmp/testeansible002
+        dest: /tmp/
+      when: file.stat.exists
+
+    - debug:
+        msg: "ARQUIVO NAO ENCONTRADO - ERROR"
+      when: file.stat.exists == false

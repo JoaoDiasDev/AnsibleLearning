@@ -1,0 +1,19 @@
+- name: Playbook Default - Block Testing
+  hosts: all
+  tasks:
+    - block:
+        - debug:
+            msg: "#### EXECUTADO NORMALMENTE ###"
+        - name: Simulando erros
+          shell: ./configure 
+          args:
+            chdir: /tmp
+            warn: false
+        - debug:
+            msg: "NUNCA SERA EXECUTADO"
+      rescue:
+        - debug:
+            msg: "ERROR - FALHA NO TARGET {{ inventory_hostname }}"
+      always:
+        - name: SISOP | Update System
+          yum: name=* state=latest
