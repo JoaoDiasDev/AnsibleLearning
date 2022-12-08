@@ -1,0 +1,10 @@
+---
+
+- name: Adicionar usuario teste001
+  user:
+    name: teste001
+    shell: /bin/bash
+    password: "{{password}}"
+    append: yes
+
+...
