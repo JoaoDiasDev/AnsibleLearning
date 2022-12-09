@@ -1,0 +1,42 @@
+timezone: America/Sao_Paulo
+joaodias_pass_sha256: "$5$IGLt7PZKB9Dimnzc$3EfIx.uf2INul.aTDsWf4.usZgFVA6TC.KIJal1Bdm4"
+root_pass_sha256: "$5$IGLt7PZKB9Dimnzc$3EfIx.uf2INul.aTDsWf4.usZgFVA6TC.KIJal1Bdm4"
+
+common_packages_redhat:
+  - "@Development tools"
+  - bind-utils
+  - bc
+  - bzip2
+  - curl
+  - elinks
+  - git
+  - htop
+  - iperf3
+  - iptraf
+  - lsof
+  - lynx
+  - mtr
+  - net-tools
+  - nmap
+  - pv
+  - screen
+  - tcpdump
+  - telnet
+  - unzip
+  - vim
+  - wget
+  - aspell
+  - bash-completion
+  - tree
+
+common_packages_debian:
+  - build-essential
+  - net-tools
+  - bc
+  - sudo
+  - screen
+  - tcpdump
+  - telnet
+  - nmap
+  - vim
+  - tree

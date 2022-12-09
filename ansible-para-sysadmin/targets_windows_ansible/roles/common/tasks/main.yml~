@@ -2,8 +2,8 @@
 
 - name: USERS | Adicionando usuários
   win_domain_user:
-    name: ozzy
-    firstname: Ozzy
+    name: joaodias
+    firstname: joaodias
     surname: Osbourne
     company: Black Sabbath
     password: Senha123
