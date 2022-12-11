@@ -1,0 +1,25 @@
+---
+
+- shell: echo "{{item}}"
+  loop:
+    - one
+    - two
+  register: echo
+  changed_when: echo.stdout != "one"
+
+- debug:
+    msg: "{{item}}"
+  loop: "{{groups['all']}}"
+
+- name: Adicionando usuarios
+  user:
+    name: "{{item}}"
+    state: present
+    groups: "users"
+  loop:
+    - user1
+    - user2
+  loop_control:
+    pause: 5
+
+...

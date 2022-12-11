@@ -1,0 +1,32 @@
+---
+
+- name: Adicionando usuarios
+  user:
+    name: "{{item}}"
+    state: present
+    groups: "users"
+  loop:
+   - joao
+   - maria
+
+- name: Adicionando usuarios
+  user:
+    name: "{{item.name}}"
+    state: present
+    groups: "{{item.groups}}"
+  loop:
+   - {name: 'testuser1', groups: 'users'}
+   - {name: 'testuser2', groups: 'root'}
+
+- name: Instalação de pacotes
+  yum:
+    name: "{{packages}}"
+    state: present
+
+- name: Remoção de pacotes
+  yum:
+    name: "{{item}}"
+    state: absent
+  loop: "{{packages_remove}}"
+
+...
